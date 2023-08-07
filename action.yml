@@ -53,9 +53,12 @@ runs:
           if [ -f "./artifacts/geode-build-mac/$mod" ]; then
             PACKAGE_ARGS="$PACKAGE_ARGS \"./artifacts/geode-build-mac/$mod\""
           fi
+          ARG_LIST=($PACKAGE_ARGS)
           # why does it merge into the first one instead of just an output..
-          FIRST="${PACKAGE_ARGS%% *}"
-          geode package merge $PACKAGE_ARGS
+          FIRST="${ARG_LIST[0]}"
+          if [ ${#ARG_LIST[@]} != 1 ]; then
+            geode package merge $PACKAGE_ARGS
+          fi
           cp $FIRST out
         done
         echo "build-output=${{ github.action_path }}/out" >> $GITHUB_OUTPUT
