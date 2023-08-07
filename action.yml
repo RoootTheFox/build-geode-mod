@@ -63,7 +63,7 @@ runs:
           fi
           cp $FIRST out
         done
-        echo "build-output=${{ github.action_path }}/out" >> $GITHUB_OUTPUT
+        echo "output=${{ github.action_path }}/out" >> $GITHUB_OUTPUT
 
     - uses: geekyeggo/delete-artifact@v2
       if: ${{ inputs.delete-artifacts }}
