@@ -50,10 +50,10 @@ runs:
         for mod in $MODS; do
           PACKAGE_ARGS=""
           if [ -f "./artifacts/geode-build-win/$mod" ]; then
-            PACKAGE_ARGS="$PACKAGE_ARGS \"./artifacts/geode-build-win/$mod\""
+            PACKAGE_ARGS="$PACKAGE_ARGS ./artifacts/geode-build-win/$mod"
           fi
           if [ -f "./artifacts/geode-build-mac/$mod" ]; then
-            PACKAGE_ARGS="$PACKAGE_ARGS \"./artifacts/geode-build-mac/$mod\""
+            PACKAGE_ARGS="$PACKAGE_ARGS ./artifacts/geode-build-mac/$mod"
           fi
           ARG_LIST=($PACKAGE_ARGS)
           # why does it merge into the first one instead of just an output..
