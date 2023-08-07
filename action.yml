@@ -42,6 +42,8 @@ runs:
       shell: bash
       run: |
         cd "${{ github.action_path }}"
+        ls -R
+
         chmod +x ./geode
         mkdir out
         MODS=$(find . -name *.geode -type f -printf "%f\n" | sort -u)
